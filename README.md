@@ -77,9 +77,3 @@ docs/
 tests/
   test_demo.py            Basic demo checks
 ```
-
-## License
-
-[MIT](LICENSE). Contributions are welcome, but never submit real employee data or internal company materials.
-
-> **Separate project:** Parental Leave AI Handover will have its own repository, documentation, and templates. It is intentionally not included here.
