@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>People Ops Daily Brief — Synthetic Demo</title>
+<style>
+  :root { --ink:#192a38; --muted:#647586; --line:#e4eaf0; --bg:#f5f7fa; --white:#fff; --blue:#365fbd; --navy:#17375b; --teal:#20a08d; --violet:#8d7ad8; --orange:#e8a14d; --pink:#db779e; --slate:#91a1b5; --shadow:0 10px 36px rgba(30,48,77,.045); }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; color:var(--ink); background:var(--bg); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; line-height:1.55; }
+  a { color:var(--blue); text-underline-offset:3px; }
+  button { font:inherit; cursor:pointer; }
+  .shell { display:grid; grid-template-columns:244px minmax(0,1fr); max-width:1500px; margin:auto; min-height:100vh; }
+  .sidebar { border-right:1px solid var(--line); padding:31px 20px; background:#fff; position:sticky; top:0; height:100vh; overflow:auto; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:15px; letter-spacing:-.025em; }
+  .brandmark { display:grid; place-items:center; width:36px; height:36px; background:#17375b; color:white; border-radius:12px; font-size:17px; }
+  .sidetag { color:#758698; font-size:11px; text-transform:uppercase; font-weight:800; letter-spacing:.13em; margin:39px 0 12px 12px; }
+  .navlink { display:flex; align-items:center; gap:10px; color:#536678; font-size:13px; text-decoration:none; padding:9px 12px; border-radius:9px; margin-bottom:3px; }
+  .navlink:hover,.navlink:focus-visible { background:#eef3fb; color:#234f9d; }
+  .navlink.active { background:#eaf1ff; color:#2d57a5; font-weight:750; }
+  .sidebar-note { margin-top:36px; padding:15px; background:#f2f6fb; border:1px solid #e7eef6; border-radius:12px; font-size:11.5px; color:#687b8c; }
+  .main { padding:34px clamp(20px,4.5vw,66px) 85px; min-width:0; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:32px; }
+  .eyebrow { font-size:11px; text-transform:uppercase; letter-spacing:.17em; font-weight:800; color:#69819a; }
+  .actions { display:flex; gap:8px; }
+  .btn { border:1px solid #d7e0eb; background:#fff; color:#38506a; padding:10px 13px; border-radius:10px; font-weight:700; font-size:12px; }
+  .btn:hover { background:#f0f5ff; }
+  .btn.primary { background:#17375b; color:white; border-color:#17375b; }
+  .hero { background:linear-gradient(115deg,#17375b 0%,#264d75 72%,#326c88 100%); color:#fff; border-radius:22px; padding:32px 35px 30px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+  .hero::after { content:""; position:absolute; width:250px; height:250px; border:1px solid rgba(255,255,255,.1); border-radius:50%; right:-75px; top:-115px; box-shadow:0 0 0 45px rgba(255,255,255,.028),0 0 0 90px rgba(255,255,255,.025); pointer-events:none; }
+  .hero .kicker { font-size:11px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; color:#bcd9f2; }
+  .hero h1 { font-size:clamp(27px,3.5vw,43px); line-height:1.16; letter-spacing:-.045em; margin:11px 0 12px; max-width:680px; }
+  .hero p { color:#e2eaf3; font-size:14px; max-width:710px; margin:0; }
+  .hero-meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:23px; }
+  .pill { border-radius:50px; padding:6px 11px; font-size:11px; font-weight:750; background:rgba(255,255,255,.13); color:#e7f1ff; border:1px solid rgba(255,255,255,.15); }
+  .pill.synthetic { background:#e4f8ed; color:#23614c; border-color:#b9e5cb; }
+  .kpis { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; margin-top:18px; }
+  .kpi { background:white; border:1px solid var(--line); border-radius:15px; padding:18px 20px; box-shadow:var(--shadow); }
+  .kpi .num { font-size:30px; font-weight:850; letter-spacing:-.05em; line-height:1.1; }
+  .kpi .label { font-size:12px; color:#657689; margin-top:6px; }
+  .section { scroll-margin-top:25px; margin-top:32px; }
+  .section-title { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:13px; }
+  .section-title h2 { margin:0; font-size:20px; letter-spacing:-.035em; }
+  .section-title .sub { font-size:11px; color:#8b99a7; }
+  .panel { background:white; border:1px solid var(--line); border-radius:16px; padding:22px 24px; box-shadow:var(--shadow); }
+  .summary { font-size:14px; color:#344c60; margin:0; }
+  .attention { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  .attention-card { background:white; border:1px solid var(--line); border-top:3px solid #e7a85d; border-radius:13px; padding:17px 18px; box-shadow:var(--shadow); }
+  .attention-card:nth-child(2) { border-top-color:#6a91d4; }
+  .attention-card:nth-child(3) { border-top-color:#a28ad5; }
+  .tag { font-size:10px; text-transform:uppercase; letter-spacing:.09em; font-weight:850; color:#98743c; }
+  .attention-card:nth-child(2) .tag { color:#5476a8; }
+  .attention-card:nth-child(3) .tag { color:#8067b3; }
+  .attention-card h3 { margin:8px 0 7px; font-size:14px; letter-spacing:-.01em; }
+  .attention-card p { margin:0; font-size:12px; color:#66798b; }
+  .attention-card .next { margin-top:11px; color:#2b4965; font-weight:650; }
+  .work-list { display:grid; gap:0; }
+  .work-row { display:grid; grid-template-columns:1fr auto; align-items:start; gap:20px; padding:13px 0; border-bottom:1px solid #edf0f3; }
+  .work-row:last-child { border-bottom:0; padding-bottom:0; }
+  .work-row:first-child { padding-top:0; }
+  .work-row strong { display:block; font-size:13px; }
+  .work-row small { display:block; font-size:12px; color:#6b7d8e; margin-top:3px; }
+  .work-row .nature { font-size:10px; color:#62768c; background:#eff3f8; border-radius:50px; padding:5px 9px; white-space:nowrap; font-weight:750; }
+  .chart-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+  .chart-panel { background:white; border:1px solid var(--line); border-radius:16px; padding:20px; box-shadow:var(--shadow); min-width:0; }
+  .chart-panel h3 { font-size:14px; margin:0 0 5px; letter-spacing:-.015em; }
+  .chart-panel .hint { color:#8b99a7; font-size:11px; }
+  .chart-content { display:flex; align-items:center; gap:19px; margin-top:17px; }
+  .donut { width:153px; height:153px; border-radius:50%; flex:0 0 153px; display:grid; place-items:center; position:relative; }
+  .donut.area { background:conic-gradient(#365fbd 0 37.5%,#20a08d 37.5% 62.5%,#8d7ad8 62.5% 75%,#e8a14d 75% 87.5%,#db779e 87.5% 100%); }
+  .donut.nature { background:conic-gradient(#20a08d 0 50%,#365fbd 50% 87.5%,#e8a14d 87.5% 100%); }
+  .donut::before { content:""; width:107px; height:107px; border-radius:50%; background:white; position:absolute; }
+  .donut-label { z-index:1; text-align:center; line-height:1.1; }
+  .donut-label strong { display:block; font-size:29px; letter-spacing:-.06em; }
+  .donut-label small { font-size:10px; color:#8b99a7; }
+  .legend { display:grid; gap:9px; min-width:0; flex:1; }
+  .legend-item { display:grid; grid-template-columns:9px minmax(0,1fr) auto; align-items:center; gap:8px; font-size:11px; color:#526577; }
+  .dot { width:9px; height:9px; border-radius:3px; }
+  .legend-item b { font-size:11px; color:#283d53; }
+  .footnote { color:#8795a3; font-size:11px; margin:12px 2px 0; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .mini-title { color:#233f5b; font-weight:800; font-size:13px; margin:0 0 7px; }
+  .bodytext { font-size:12.5px; color:#627589; margin:0; }
+  .bodytext + .bodytext { margin-top:9px; }
+  .inline-list { margin:0; padding-left:19px; font-size:13px; color:#50677c; }
+  .inline-list li { padding:5px 0; }
+  details { border:1px solid var(--line); background:white; border-radius:14px; padding:15px 18px; }
+  summary { font-size:13px; font-weight:800; color:#284866; cursor:pointer; }
+  details p,details li { font-size:12px; color:#5d7081; }
+  .footer { margin-top:32px; text-align:center; color:#92a0ad; font-size:11px; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  @media(max-width:1150px) { .chart-content { flex-direction:column; align-items:flex-start; } .legend { width:100%; } .donut { margin:auto; } }
+  @media(max-width:850px) { .shell { grid-template-columns:1fr; } .sidebar { display:none; } .main { padding:22px 16px 50px; } .hero { padding:27px 23px; } .attention { grid-template-columns:1fr; } .chart-content { flex-direction:row; } .chart-grid { grid-template-columns:1fr; } .two-col { grid-template-columns:1fr; } .topbar { margin-bottom:20px; } }
+  @media(max-width:480px) { .hero h1 { font-size:29px; } .kpi { padding:14px; } .kpi .num { font-size:23px; } .kpi .label { font-size:10px; } .chart-content { flex-direction:column; } .legend { max-width:300px; margin:auto; } .work-row { gap:8px; } .panel { padding:18px; } .actions { gap:5px; } .btn { padding:9px; } }
+  @media print { body { background:white; } .shell { display:block; } .sidebar,.actions { display:none !important; } .main { padding:0; } .hero { background:#17375b !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .panel,.kpi,.chart-panel,.attention-card { box-shadow:none; break-inside:avoid; } .section { break-inside:avoid; margin-top:22px; } .donut { -webkit-print-color-adjust:exact; print-color-adjust:exact; } details { break-inside:avoid; } }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="Report navigation">
+    <div class="brand"><span class="brandmark" aria-hidden="true">✦</span><span>People Ops<br>Intelligence</span></div>
+    <div class="sidetag">In this brief</div>
+    <nav aria-label="Table of contents">
+      <a class="navlink active" href="#overview">☀️ &nbsp; Overview</a>
+      <a class="navlink" href="#attention">🔔 &nbsp; Needs attention</a>
+      <a class="navlink" href="#accomplishments">✓ &nbsp; Accomplishments</a>
+      <a class="navlink" href="#distribution">◉ &nbsp; Work distribution</a>
+      <a class="navlink" href="#impact">✧ &nbsp; Impact highlights</a>
+      <a class="navlink" href="#company">⌂ &nbsp; Inside the company</a>
+      <a class="navlink" href="#learning">◈ &nbsp; Help me understand</a>
+      <a class="navlink" href="#improvements">↗ &nbsp; Improvements</a>
+      <a class="navlink" href="#priorities">▣ &nbsp; Next priorities</a>
+      <a class="navlink" href="#sources">🔒 &nbsp; Sources & confidence</a>
+    </nav>
+    <div class="sidebar-note"><strong>Synthetic demonstration</strong><br>All people, companies, activities, and numbers on this page are fictional. No connector access or network calls.</div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><div class="eyebrow">Wednesday · September 16, 2026</div><div class="actions"><button class="btn" id="copyBtn" type="button">Copy overview</button><button class="btn primary" type="button" onclick="window.print()">↗ Print / PDF</button></div></div>
+    <header class="hero"><div class="kicker">Your daily intelligence brief</div><h1>Good morning, Alex.<br>Here's what moved forward.</h1><p>Interview preparation is on track, onboarding dependencies are clearer, and the team has a concrete next step on its updated appointment process.</p><div class="hero-meta"><span class="pill synthetic">● Synthetic demo</span><span class="pill">Workday · Sep 16</span><span class="pill">Evidence: example notes</span></div></header>
+    <div class="kpis" aria-label="Report metrics"><div class="kpi"><div class="num">8</div><div class="label">Completed action groups</div></div><div class="kpi"><div class="num">3</div><div class="label">Items needing attention</div></div><div class="kpi"><div class="num">2</div><div class="label">Impact highlights</div></div></div>
+
+    <section class="section" id="overview"><div class="section-title"><h2>☀️ 60-Second Overview</h2><span class="sub">01 / 09</span></div><div class="panel"><p class="summary" id="overviewText">You advanced three recruiting workstreams, resolved two onboarding handoffs, and completed several employee-support tasks. The most time-sensitive item is confirming interview-panel coverage before tomorrow. A proposed assay workflow update could affect how science teams plan capacity; it remains under review, not approved. Two dependencies still require stakeholder confirmation.</p></div></section>
+
+    <section class="section" id="attention"><div class="section-title"><h2>🔔 Needs Your Attention</h2><span class="sub">Prioritized</span></div><div class="attention"><article class="attention-card"><div class="tag">Upcoming deadline · Verified</div><h3>Confirm panel coverage</h3><p>Tomorrow's technical interview overlaps with a separate planning session.</p><p class="next">Next → Ask the panel owner to confirm attendance.</p></article><article class="attention-card"><div class="tag">Waiting on others</div><h3>Equipment delivery date</h3><p>The laptop was ordered, but a delivery confirmation is not in the example notes.</p><p class="next">Next → Request the tracking update.</p></article><article class="attention-card"><div class="tag">Needs verification</div><h3>Candidate update</h3><p>An update was promised this week; the final decision has not been documented.</p><p class="next">Next → Verify status before responding.</p></article></div></section>
+
+    <section class="section" id="accomplishments"><div class="section-title"><h2>✅ Accomplishments</h2><span class="sub">8 grouped completed actions</span></div><div class="panel"><div class="work-list">
+      <div class="work-row"><div><strong>Prepared technical interview instructions</strong><small>Recruiting · Candidate guidance revised and shared · [S1]</small></div><span class="nature">Operational</span></div>
+      <div class="work-row"><div><strong>Confirmed two interview schedules</strong><small>Recruiting · Invitations acknowledged · [S2]</small></div><span class="nature">Administrative</span></div>
+      <div class="work-row"><div><strong>Consolidated hiring-panel feedback</strong><small>Recruiting · Summary shared for discussion, decision pending · [S3]</small></div><span class="nature">Operational</span></div>
+      <div class="work-row"><div><strong>Closed a new-hire access handoff</strong><small>Onboarding · Ownership confirmed · [S4]</small></div><span class="nature">Operational</span></div>
+      <div class="work-row"><div><strong>Resolved onboarding document questions</strong><small>Onboarding · Clarifications provided · [S5]</small></div><span class="nature">Administrative</span></div>
+      <div class="work-row"><div><strong>Proposed an appointment-policy clarification</strong><small>People Operations · Suggested approach documented, not adopted · [S6]</small></div><span class="nature">Strategic</span></div>
+      <div class="work-row"><div><strong>Explained benefits enrollment steps</strong><small>Benefits · Guidance delivered, enrollment outcome unverified · [S7]</small></div><span class="nature">Operational</span></div>
+      <div class="work-row"><div><strong>Confirmed event catering details</strong><small>Events & Travel · Vendor acknowledgment received · [S8]</small></div><span class="nature">Administrative</span></div>
+    </div></div></section>
+
+    <section class="section" id="distribution"><div class="section-title"><h2>📊 Work Distribution</h2><span class="sub">Two reconciled views</span></div><div class="chart-grid">
+      <article class="chart-panel"><h3>By Work Area</h3><div class="hint">Share of 8 grouped accomplishments</div><div class="chart-content"><div class="donut area" role="img" aria-label="Work area: Recruiting 3, Onboarding 2, People Operations 1, Benefits 1, Events and Travel 1"><div class="donut-label"><strong>8</strong><small>items</small></div></div><div class="legend"><div class="legend-item"><span class="dot" style="background:#365fbd"></span><span>Recruiting</span><b>3 · 37.5%</b></div><div class="legend-item"><span class="dot" style="background:#20a08d"></span><span>Onboarding</span><b>2 · 25%</b></div><div class="legend-item"><span class="dot" style="background:#8d7ad8"></span><span>People Ops</span><b>1 · 12.5%</b></div><div class="legend-item"><span class="dot" style="background:#e8a14d"></span><span>Benefits</span><b>1 · 12.5%</b></div><div class="legend-item"><span class="dot" style="background:#db779e"></span><span>Events</span><b>1 · 12.5%</b></div></div></div></article>
+      <article class="chart-panel"><h3>By Nature of Work</h3><div class="hint">Same 8 grouped accomplishments</div><div class="chart-content"><div class="donut nature" role="img" aria-label="Nature: Operational 4, Administrative 3, Strategic 1"><div class="donut-label"><strong>8</strong><small>items</small></div></div><div class="legend"><div class="legend-item"><span class="dot" style="background:#20a08d"></span><span>Operational</span><b>4 · 50%</b></div><div class="legend-item"><span class="dot" style="background:#365fbd"></span><span>Administrative</span><b>3 · 37.5%</b></div><div class="legend-item"><span class="dot" style="background:#e8a14d"></span><span>Strategic</span><b>1 · 12.5%</b></div></div></div></article>
+    </div><p class="footnote">Grouped completed actions ≠ hours worked, effort, productivity, or business impact. Data is fictional.</p></section>
+
+    <section class="section" id="impact"><div class="section-title"><h2>🎯 Impact Highlights</h2><span class="sub">Evidence before interpretation</span></div><div class="two-col"><div class="panel"><h3 class="mini-title">Interview preparation</h3><p class="bodytext"><strong>Verified:</strong> Clearer instructions were sent to the panel and candidates.</p><p class="bodytext"><strong>Potential:</strong> More consistent evaluations; panel feedback is still needed.</p></div><div class="panel"><h3 class="mini-title">Appointment-policy input</h3><p class="bodytext"><strong>Verified:</strong> A clarification proposal was documented.</p><p class="bodytext"><strong>Potential:</strong> More predictable scheduling; no adoption confirmed.</p></div></div></section>
+
+    <section class="section" id="company"><div class="section-title"><h2>🏢 Inside the Company</h2><span class="sub">Context, not personal credit</span></div><div class="panel"><h3 class="mini-title">Assay workflow under review</h3><p class="bodytext">A fictional science team is evaluating whether to batch an additional validation step. <strong>Status: Proposed.</strong> If adopted, the change may influence lab scheduling, but no decision or capacity impact is verified.</p></div></section>
+
+    <section class="section" id="learning"><div class="section-title"><h2>🧬 Help Me Understand</h2><span class="sub">Plain-English science</span></div><div class="panel"><h3 class="mini-title">What is assay validation?</h3><p class="bodytext">Validation checks whether a laboratory test performs reliably for its intended use. <strong>Analogy:</strong> Before trusting a kitchen scale for a recipe, you check that it gives consistent and sufficiently accurate measurements.</p><p class="bodytext"><strong>Question to ask:</strong> “Which reliability metric would determine whether the new step is ready?”</p></div></section>
+
+    <section class="section" id="improvements"><div class="section-title"><h2>💡 Improvement Opportunities</h2><span class="sub">Practical and testable</span></div><div class="panel"><p class="bodytext"><strong>Candidate-update ownership:</strong> Record the decision owner and promised update date in the existing hiring tracker, if not already captured. Verify the current process before proposing a change.</p></div></section>
+
+    <section class="section" id="priorities"><div class="section-title"><h2>📅 Next Priorities</h2><span class="sub">Thursday · Sep 17</span></div><div class="panel"><ol class="inline-list"><li>Confirm technical interview-panel coverage.</li><li>Check the candidate decision owner and promised response date.</li><li>Request equipment delivery confirmation for the new hire.</li></ol></div></section>
+
+    <section class="section" id="sources"><details><summary>🔒 Source & Confidence Check · Expand</summary><p><strong>Demo input:</strong> Eight fictional source-note references [S1]–[S8], created solely to demonstrate layout. No Slack, Gmail, Notion, Granola, Calendar, or external system was accessed.</p><p><strong>Confidence:</strong> “Verified” means directly supported by the hypothetical demo notes; “Inferred” is a clearly qualified interpretation; “Needs Verification” identifies missing evidence. These labels do not validate real-world claims.</p><p><strong>Privacy:</strong> All names, activities, companies and numbers are synthetic. The HTML makes no network requests. Real reports may contain sensitive data and must be stored appropriately.</p></details></section>
+    <div class="footer">People Ops AI Assistant · Synthetic HTML Edition · Offline-ready</div>
+  </main>
+</div>
+<script>
+(function(){
+  const btn = document.getElementById('copyBtn');
+  btn.addEventListener('click', async function(){
+    const content = document.getElementById('overviewText').innerText;
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(content);
+      btn.textContent='✓ Copied';
+    } catch (e) {
+      const range=document.createRange(); range.selectNodeContents(document.getElementById('overviewText'));
+      const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      btn.textContent='Text selected — copy';
+    }
+  });
+})();
+</script>
+</body>
+</html>

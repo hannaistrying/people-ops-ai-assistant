@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="330" viewBox="0 0 1160 330" role="img" aria-labelledby="title desc">
+<title id="title">People Ops AI Assistant architecture</title>
+<desc id="desc">Authorized source systems feed evidence retrieval and verification, which creates a daily brief for Notion or local HTML, with human review and privacy boundaries.</desc>
+<rect width="1160" height="330" fill="#f6f8fb" rx="20"/>
+<text x="42" y="39" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#566d83">PROMPT-DRIVEN WORKFLOW · HUMAN REVIEW REQUIRED</text>
+<rect x="36" y="71" width="232" height="185" rx="17" fill="white" stroke="#dce5ee" stroke-width="2"/>
+<text x="57" y="103" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17375b">Authorized sources</text>
+<text x="57" y="135" font-family="Arial,sans-serif" font-size="14" fill="#5b6f82">Slack / Email</text>
+<text x="57" y="160" font-family="Arial,sans-serif" font-size="14" fill="#5b6f82">Calendar / Notes</text>
+<text x="57" y="185" font-family="Arial,sans-serif" font-size="14" fill="#5b6f82">Internal documentation</text>
+<text x="57" y="229" font-family="Arial,sans-serif" font-size="12" fill="#238575">READ-ONLY</text>
+<path d="M280 162 H326" fill="none" stroke="#8ea5bb" stroke-width="3" stroke-linecap="round"/>
+<path d="M318 155 L328 162 L318 169" fill="none" stroke="#8ea5bb" stroke-width="3"/>
+<rect x="340" y="71" width="251" height="185" rx="17" fill="white" stroke="#dce5ee" stroke-width="2"/>
+<text x="362" y="103" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#17375b">Evidence engine</text>
+<text x="362" y="135" font-family="Arial,sans-serif" font-size="14" fill="#5b6f82">Retrieve &amp; deduplicate</text>
+<text x="362" y="160" font-family="Arial,sans-serif" font-size="14" fill="#5b6f82">Date &amp; ownership checks</text>
+<text x="362" y="185" font-family="Arial,sans-serif" font-size="14" fill="#5b6f82">Verified / Inferred / Gap</text>
+<text x="362" y="229" font-family="Arial,sans-serif" font-size="12" fill="#238575">PRIVACY &amp; HUMAN REVIEW</text>
+<path d="M603 162 H649" fill="none" stroke="#8ea5bb" stroke-width="3" stroke-linecap="round"/>
+<path d="M641 155 L651 162 L641 169" fill="none" stroke="#8ea5bb" stroke-width="3"/>
+<rect x="663" y="107" width="173" height="109" rx="17" fill="#17375b"/>
+<text x="683" y="144" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="white">Daily Brief</text>
+<text x="683" y="173" font-family="Arial,sans-serif" font-size="13" fill="#cbdceb">Actions · Impact</text>
+<text x="683" y="195" font-family="Arial,sans-serif" font-size="13" fill="#cbdceb">Company context</text>
+<path d="M848 162 H877 V112 H908" fill="none" stroke="#8ea5bb" stroke-width="3" stroke-linecap="round"/>
+<path d="M900 105 L910 112 L900 119" fill="none" stroke="#8ea5bb" stroke-width="3"/>
+<path d="M877 162 V220 H908" fill="none" stroke="#8ea5bb" stroke-width="3" stroke-linecap="round"/>
+<path d="M900 213 L910 220 L900 227" fill="none" stroke="#8ea5bb" stroke-width="3"/>
+<rect x="922" y="71" width="203" height="84" rx="15" fill="#e8f0ff" stroke="#bcd0f5" stroke-width="2"/>
+<text x="941" y="102" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#234c95">Notion Edition</text>
+<text x="941" y="126" font-family="Arial,sans-serif" font-size="12" fill="#4e6d99">Month → Week → Day</text>
+<rect x="922" y="178" width="203" height="84" rx="15" fill="#e4f6f2" stroke="#b3e0d6" stroke-width="2"/>
+<text x="941" y="209" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#157b6c">HTML Edition</text>
+<text x="941" y="233" font-family="Arial,sans-serif" font-size="12" fill="#467e75">Offline · No Notion</text>
+<text x="38" y="297" font-family="Arial,sans-serif" font-size="12" fill="#6e8091">Connector availability and actual write permissions depend on the user's environment. No automated employment decisions.</text>
+</svg>

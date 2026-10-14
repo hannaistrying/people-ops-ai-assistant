@@ -22,9 +22,9 @@ For example, you might connect **Slack** (team communication), **Gmail** (email)
 
 The prompts are **not** an installed agent, an automatic scheduled workflow, or an HR decision-making system. You initiate runs in your AI assistant, unless you separately configure supported scheduling.
 
-## Get started in 3 minutes
+## Get started
 
-1. Review your company's AI and data-handling rules. Connect only approved services with least-privilege access.
+1. Follow [Getting Started](GETTING_STARTED.md). Review your company's AI and data-handling rules. Connect only approved services with least-privilege access.
 2. Open the [offline prompt configurator](setup.html) or choose one of the prompt files below. Replace the `{{PLACEHOLDER}}` values for your role, sources, reporting period, and destination.
 3. Run the prompt, review cited evidence and uncertainties, and correct any misattributions before sharing or saving.
 
@@ -34,7 +34,9 @@ The prompts are **not** an installed agent, an automatic scheduled workflow, or 
 | **Notion backfill** | Historical archive with checkpoints | [notion-backfill.md](prompts/notion-backfill.md) |
 | **Standalone HTML** | Downloadable daily brief, no Notion needed | [html-daily.md](prompts/html-daily.md) |
 
-See [Customization](docs/customization.md) and [Quality checklist](docs/quality-checklist.md).
+For step-by-step instructions see [Getting Started](GETTING_STARTED.md), [Customization](CUSTOMIZATION.md), and [Quality checklist](docs/quality-checklist.md).
+
+**Additional prompts:** [Weekly / Monthly Summary](prompts/period-summary.md) · [Performance Review Evidence Pack](prompts/performance-review.md).
 
 ## Example and screenshots
 
@@ -53,11 +55,15 @@ Actual workflow screenshots will be added only after a manual privacy review. Se
 ## Project structure
 
 ```text
+GETTING_STARTED.md         Beginner step-by-step guide
+CUSTOMIZATION.md           Personalization checklist
 setup.html                 Offline prompt configurator
 prompts/
   notion-ongoing.md        Daily / weekly / monthly workflow
   notion-backfill.md       Historical backfill with checkpoints
   html-daily.md            Single-run HTML daily brief
+  period-summary.md        Weekly / monthly analysis
+  performance-review.md    Source-backed self-review draft
 examples/
   daily-brief-demo.html    Fictional example (not real company data)
   screenshots/README.md   Placeholder for reviewed real captures
