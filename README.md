@@ -4,6 +4,20 @@
 
 Built around a real People Ops workflow. You can adapt the prompts to ChatGPT Work or another assistant (such as Claude) **if your plan, organization, and connected tools support the required access and actions**.
 
+## See the output
+
+![Screenshot of the synthetic People Ops daily brief: overview, priorities, accomplishments, and work distribution](assets/daily-brief-preview.png)
+
+*Screenshot of the fictional HTML example. All names, activities, and numbers are synthetic; no workplace accounts were accessed.*
+
+[Download the full HTML example](examples/daily-brief-demo.html) (choose **Download raw file**, then open it in your browser).
+
+## Try it without connecting accounts
+
+Follow the [first-run walkthrough](examples/QUICKSTART.md): copy the HTML prompt, use the provided configuration, and append the [small fictional dataset](examples/sample-notes.md). Your assistant will generate a **Synthetic Demo** daily brief using only those notes.
+
+No workplace data or connected accounts are required. The walkthrough includes expected results so you can check the output.
+
 ## What it helps with
 
 - **Daily progress and business impact:** capture completed work and its observed outcomes, not just meetings or to-do lists.
@@ -40,9 +54,7 @@ For step-by-step instructions see [Getting Started](GETTING_STARTED.md), [Custom
 
 ## Example and screenshots
 
-[Open the fictional HTML example](examples/daily-brief-demo.html) by downloading it locally. **This example is synthetic, not a screenshot of the author's real workplace.**
-
-Actual workflow screenshots will be added only after a manual privacy review. See [Screenshot guidelines](docs/screenshots.md). Until then, the repository intentionally contains no screenshots.
+The preview above is captured from the [synthetic HTML example](examples/daily-brief-demo.html). Real workplace screenshots are not needed to try the project. See [Screenshot guidelines](docs/screenshots.md) before contributing any additional captures.
 
 ## Data safety and accuracy
 
@@ -66,9 +78,12 @@ prompts/
   performance-review.md    Source-backed self-review draft
 examples/
   daily-brief-demo.html    Fictional example (not real company data)
+  QUICKSTART.md            First run without connected accounts
+  sample-notes.md          Fictional input dataset
   screenshots/README.md   Placeholder for reviewed real captures
 assets/
   architecture.svg        Workflow diagram
+  daily-brief-preview.png  Screenshot of the synthetic example
 docs/
   customization.md        How to personalize
   quality-checklist.md    Quality and accuracy checks
