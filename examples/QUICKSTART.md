@@ -2,23 +2,10 @@
 
 Create a synthetic daily brief using only the included notes. You need an AI assistant that can accept a long prompt and return HTML; file creation is helpful but optional. No workplace accounts, Notion, or connectors are needed.
 
-1. Open [the HTML daily prompt](../prompts/html-daily.md). On GitHub, choose **Raw**, then copy the full prompt into a new chat. Do not send it yet.
-2. Replace its entire **EDIT BEFORE RUNNING** configuration block with this block (keep the rest of the prompt):
-
-```text
-USER_NAME: Alex
-ROLE_CONTEXT: People Ops Generalist at fictional Cedar Bay Bio
-TIMEZONE: America/Toronto
-REPORT_DATE: 2026-09-16
-INPUT_MODE: SANITIZED_NOTES
-DATA_SOURCES: NONE
-SENSITIVE_DATA_RULES: Synthetic data only. Use only the supplied fictional notes. Do not access connectors or browse the web. Label the report Synthetic Demo and clarify that evidence is supplied notes, not independently verified records.
-OUTPUT_FILENAME: synthetic-daily-brief.html
-```
-
-3. Open [sample-notes.md](sample-notes.md), choose **Raw**, and copy its full contents. Append them **after the complete prompt in the same message**, under a heading `SUPPLIED FICTIONAL NOTES`.
-4. Send the combined message. Download the generated HTML and open it in your browser. If the assistant returns HTML code, copy the complete document into a plain-text file named `synthetic-daily-brief.html` and open it.
-5. Check the result against the expectations below. No account connection or permission change is part of this exercise.
+1. Open [Copy this entire fictional demo into your assistant](COPY_PASTE_DEMO.md).
+2. On GitHub, choose **Raw**, then copy the entire file into a new chat with your AI assistant and send it. No edits or additional files are needed.
+3. Download the generated HTML and open it in your browser. If the assistant returns HTML code, copy the complete document into a plain-text file named `synthetic-daily-brief.html` and open it.
+4. Check the result against the expectations below. No account connection or permission change is part of this exercise.
 
 ## What to check
 
@@ -31,3 +18,7 @@ OUTPUT_FILENAME: synthetic-daily-brief.html
 - Internal navigation, expandable source notes, and Print / Save as PDF work.
 
 The [existing demonstration](daily-brief-demo.html) shows the intended presentation, rather than an exact-output test. AI-generated wording, layout, and classification can vary. This exercise checks behavior on fictional notes; it does not validate live connectors or retrieval completeness.
+
+## Customize after your first run
+
+Use the separate [HTML daily prompt](../prompts/html-daily.md) to configure your own run. The [fictional notes](sample-notes.md) remain available separately. The combined demo bundles that prompt with the fictional configuration and notes; keep it in sync when those sources change.
