@@ -62,7 +62,7 @@ The preview above is captured from the [synthetic HTML example](examples/daily-b
 - Only retrieve information the current user is authorized to see. Prompt instructions are not access controls.
 - Distinguish **Verified / Inferred / Needs Verification**; do not invent business impact or mark future work as completed.
 - AI-generated insights about policy gaps or people processes require human review. Do not automate employment decisions.
-- Long historical backfills may be incomplete. The original pilot's Notion backfill was **partial** (9 of 22 weekdays, 2 of 5 weeks, no monthly summary). Do not present it as production-ready.
+- Long historical backfills may be incomplete. The original pilot's Notion backfill was **partial** (9 of 22 weekdays, 2 of 5 weeks, no monthly summary). 
 
 ## Project structure
 
