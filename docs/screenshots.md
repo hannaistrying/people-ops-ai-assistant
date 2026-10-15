@@ -1,35 +1,26 @@
-> **Publishing note:** This repository currently contains no screenshots. Add only manually reviewed, redacted captures from the actual workflow.
+# Screenshot guidelines
 
-# Screenshot plan for the article
+## Included visuals
 
-## Recommended order — two-case article
+- [Daily brief preview](../assets/daily-brief-preview.png): a browser capture of the [fictional HTML demo](../examples/daily-brief-demo.html), displayed near the top of the README.
+- [Architecture diagram](../assets/architecture.svg): an illustration of the workflow, not an application screenshot.
 
-1. **Problem / before:** optional schematic of scattered Slack, email, meetings, notes — **illustration, not a screenshot of private data**.
-2. **Architecture:** `assets/architecture.svg` — label it a diagram.
-3. **Notion hierarchy:** capture your **synthetic** Month → Week → Day toggle archive. Expand one week, collapse the rest.
-4. **Daily Brief:** synthetic screenshot showing overview, Needs Attention and Accomplishments.
-5. **Charts:** two real, side-by-side Notion donut chart views using synthetic counts; check both desktop and mobile.
-6. **Weekly and Monthly:** synthetic weekly summary and monthly-only Career Evidence. Do not claim the real pilot produced a monthly report: QA found it absent.
-7. **HTML alternative:** ready-to-use `examples/screenshots/html-desktop.png` and `html-mobile.png`, captured from the included fictional HTML demo.
-8. **Prompt setup:** `examples/screenshots/prompt-configurator.png`, a real capture of the offline configurator.
-9. **Parental Leave Handover:** use `examples/screenshots/parental-leave-overview.png` and `parental-leave-handover-table.png` — real captures of the included **synthetic UI mockup**, not of an actual Notion page.
-10. **Transparency:** a compact QA scorecard illustrating what passed and what was incomplete, without real employee information.
+The daily brief preview uses synthetic names, activities, and numbers. It demonstrates the report's presentation; it is not evidence of a live connector run or a real employer's results. No Notion screenshots are currently included.
 
-## Captions you can reuse
+## Capturing an updated preview
 
-- *Figure 1. Architecture of the People Ops AI Assistant: authorized sources, evidence checks, and two output formats.*
-- *Figure 2. Example of the nested Notion archive (synthetic data).* 
-- *Figure 3. Daily Brief: priorities and verified actions rather than a raw activity log (synthetic data).*
-- *Figure 4. Work distribution: share of grouped accomplishments, not hours worked (synthetic data).*
-- *Figure 5. HTML Edition: a local, standalone brief without Notion (synthetic data).*
+1. Download the fictional HTML demo and open it in a browser.
+2. Capture a readable view of the report with its **Synthetic demo** label visible.
+3. Keep the capture faithful to the rendered report. Check text, charts, and cropping before saving.
+4. Update `assets/daily-brief-preview.png` if replacing the README preview. Add other synthetic captures under `examples/screenshots/` and link them only after they exist.
+5. Confirm that the README image and any new links display correctly.
 
-## Privacy checklist before publishing
+Suggested caption: *People Ops Daily Brief — synthetic example showing priorities, completed actions, and work distribution.*
 
-- Replace all real names, company/customer names, candidate IDs, internal URLs, email addresses, and file paths.
-- Do not publish screenshots with real salary, benefits, medical, immigration, disciplinary, or performance information.
-- Do not merely blur sensitive text if it could still be recovered from layers or original image metadata; preferably **recreate the screen with synthetic data**.
-- Check browser tabs, bookmarks, notifications, profile photos, and page sharing indicators.
-- Check alt text, image metadata, Git commit history, and README links.
-- Obtain company approval if you intend to describe a real internal workflow or use its screenshots.
+## Before sharing a capture
 
-**The supplied HTML and parental-leave mockup screenshots are genuine captures of local synthetic demos, not screenshots of Notion or of a real employer system.**
+- Use fictional data and label it clearly.
+- Check browser tabs, notifications, account details, internal URLs, and image metadata.
+- Exclude employee/candidate records and confidential workplace information.
+- Identify the interface accurately: HTML demo, diagram, or an actual Notion capture using synthetic data.
+- Describe only the behavior shown; a screenshot does not establish retrieval accuracy, integration support, or successful automation.

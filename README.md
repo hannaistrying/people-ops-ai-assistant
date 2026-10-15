@@ -80,7 +80,7 @@ examples/
   daily-brief-demo.html    Fictional example (not real company data)
   QUICKSTART.md            First run without connected accounts
   sample-notes.md          Fictional input dataset
-  screenshots/README.md   Placeholder for reviewed real captures
+  screenshots/README.md   Guidance for additional synthetic captures
 assets/
   architecture.svg        Workflow diagram
   daily-brief-preview.png  Screenshot of the synthetic example
@@ -88,7 +88,6 @@ docs/
   customization.md        How to personalize
   quality-checklist.md    Quality and accuracy checks
   screenshots.md          Redaction and publication checklist
-  github-publish.md       Upload instructions
 tests/
   test_demo.py            Basic demo checks
 ```
