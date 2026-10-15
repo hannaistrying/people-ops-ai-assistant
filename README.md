@@ -14,9 +14,9 @@ Built around a real People Ops workflow. You can adapt the prompts to ChatGPT Wo
 
 ## Try it without connecting accounts
 
-Follow the [first-run walkthrough](examples/QUICKSTART.md): copy the HTML prompt, use the provided configuration, and append the [small fictional dataset](examples/sample-notes.md). Your assistant will generate a **Synthetic Demo** daily brief using only those notes.
+Open [**Copy this entire fictional demo into your assistant**](examples/COPY_PASTE_DEMO.md), choose **Raw**, and paste the whole file into a new chat. The prompt, configuration and fictional notes are already combined—no edits needed. Your assistant will generate a **Synthetic Demo** daily brief using only those notes.
 
-No workplace data or connected accounts are required. The walkthrough includes expected results so you can check the output.
+No workplace data or connected accounts are required. The [first-run walkthrough](examples/QUICKSTART.md) includes expected results so you can check the output.
 
 ## What it helps with
 
@@ -79,6 +79,7 @@ prompts/
 examples/
   daily-brief-demo.html    Fictional example (not real company data)
   QUICKSTART.md            First run without connected accounts
+  COPY_PASTE_DEMO.md       Complete ready-to-run fictional prompt
   sample-notes.md          Fictional input dataset
   screenshots/README.md   Guidance for additional synthetic captures
 assets/
